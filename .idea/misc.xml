@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/AuthApp (1)/AuthApp/app" />
+    <file type="web" url="file://$PROJECT_DIR$/AuthApp (1)/AuthApp" />
+    <file type="web" url="file://$PROJECT_DIR$/service" />
+    <file type="web" url="file://$PROJECT_DIR$/userService/userService" />
+    <file type="web" url="file://$USER_HOME$/Downloads/service" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="23" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

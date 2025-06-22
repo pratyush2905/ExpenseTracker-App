@@ -21,10 +21,6 @@ import lombok.Setter;
 @Table(name = "users")
 public class UserInfo
 {
-
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private Long id;
-
     @Id
     @JsonProperty("user_id")
     @NonNull

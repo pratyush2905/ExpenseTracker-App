@@ -20,6 +20,14 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$USER_HOME$/Downloads/service" />
+        <option name="modules">
+          <set>
+            <option value="$USER_HOME$/Downloads/service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>

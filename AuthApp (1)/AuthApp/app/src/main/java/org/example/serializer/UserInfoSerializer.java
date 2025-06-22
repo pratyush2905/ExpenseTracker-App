@@ -7,26 +7,23 @@ import org.example.eventProducer.UserInfoEvent;
 import java.io.OutputStream;
 import java.util.Map;
 
-public class UserInfoSerializer implements Serializer<UserInfoEvent> {
+public class UserInfoSerializer implements Serializer<UserInfoEvent>
+{
     @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {
-        Serializer.super.configure(configs, isKey);
+    public void configure(Map<String, ?> map, boolean b) {
     }
 
     @Override
     public byte[] serialize(String arg0, UserInfoEvent arg1) {
-        byte[] res = null;
-        ObjectMapper objMapper = new ObjectMapper();
-        try{
-            res = objMapper.writeValueAsString(arg1).getBytes();
-        }catch(Exception e){
+        byte[] retVal = null;
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            retVal = objectMapper.writeValueAsString(arg1).getBytes();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return res;
+        return retVal;
     }
-
-    @Override
-    public void close() {
-        Serializer.super.close();
+    @Override public void close() {
     }
 }

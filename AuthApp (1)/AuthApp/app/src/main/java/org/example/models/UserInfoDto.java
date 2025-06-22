@@ -6,14 +6,15 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 import org.example.entities.UserInfo;
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+@JsonNaming (PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserInfoDto extends UserInfo {
+public class UserInfoDto extends UserInfo
+{
+
     @NonNull
     private String firstName; // first_name
 
@@ -23,4 +24,5 @@ public class UserInfoDto extends UserInfo {
     private Long phoneNumber;
 
     private String email; // email
+
 }

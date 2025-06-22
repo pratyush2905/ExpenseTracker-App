@@ -12,7 +12,8 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 @JsonNaming (PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class UserInfoEvent {
+public class UserInfoEvent
+{
     private String firstName;
 
     private String lastName;

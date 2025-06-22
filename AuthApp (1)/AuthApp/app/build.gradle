@@ -44,6 +44,4 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
-application {
-    mainClass = 'authservice.App'
-}
+

@@ -17,14 +17,10 @@ public class UserService {
     @Autowired
     private final UserRepository userRepository;
 
-    public UserInfoDto createOrUpdateUser(UserInfoDto userInfoDto){
-        UnaryOperator<UserInfo>updatingUser = user->{
-            return userRepository.save(userInfoDto.transformToUserInfo());
-        };
+    public UserInfoDto createOrUpdateUser(UserInfoDto userInfoDto) {
+        UnaryOperator<UserInfo> updatingUser = user -> userRepository.save(userInfoDto.transformToUserInfo());
 
-        Supplier<UserInfo>createUser = ()->{
-          return userRepository.save(userInfoDto.transformToUserInfo());
-        };
+        Supplier<UserInfo> createUser = () -> userRepository.save(userInfoDto.transformToUserInfo());
 
         UserInfo userInfo = userRepository.findByUserId(userInfoDto.getUserId())
                 .map(updatingUser)
@@ -39,12 +35,12 @@ public class UserService {
         );
     }
 
-    public UserInfoDto getUser (UserInfoDto userInfoDto) throws Exception{
-        Optional<UserInfo>res = userRepository.findByUserId(userInfoDto.getUserId());
-        if(res.isEmpty()){
-            throw new Exception("User not found in database!!");
+    public UserInfoDto getUser(UserInfoDto userInfoDto) throws Exception {
+        Optional<UserInfo> userInfoDtoOpt = userRepository.findByUserId(userInfoDto.getUserId());
+        if (userInfoDtoOpt.isEmpty()) {
+            throw new Exception("User not found");
         }
-        UserInfo userInfo = res.get();
+        UserInfo userInfo = userInfoDtoOpt.get();
         return new UserInfoDto(
                 userInfo.getUserId(),
                 userInfo.getFirstName(),

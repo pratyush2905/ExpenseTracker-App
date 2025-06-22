@@ -14,18 +14,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserInfoProducer
 {
-    private final KafkaTemplate<String, UserInfoEvent> kafkaTemplate;
+
+    private final KafkaTemplate<String, UserInfoDto> kafkaTemplate;
 
     @Value("${spring.kafka.topic-json.name}")
-    private String TOPIC_NAME;
+    private String topicJsonName;
 
     @Autowired
-    UserInfoProducer(KafkaTemplate<String,UserInfoEvent>kafkaTemplate){
+    UserInfoProducer(KafkaTemplate<String, UserInfoDto> kafkaTemplate){
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendEvent(UserInfoEvent eventData){
-        Message<UserInfoEvent> message = MessageBuilder.withPayload(eventData).setHeader(KafkaHeaders.TOPIC,TOPIC_NAME).build();
+    public void sendEventToKafka(UserInfoEvent eventData) {
+        Message<UserInfoEvent> message = MessageBuilder.withPayload(eventData)
+                .setHeader(KafkaHeaders.TOPIC, topicJsonName).build();
         kafkaTemplate.send(message);
     }
+
+
 }

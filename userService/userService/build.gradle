@@ -35,6 +35,5 @@ dependencies {
 	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: "$lombokVersion"
 	testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: "$lombokVersion"
 	testImplementation group: 'org.projectlombok', name: 'lombok', version: "$lombokVersion"
-
 }
 
