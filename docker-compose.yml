@@ -1,4 +1,3 @@
-version: '3'
 
 services:
   zookeeper:
@@ -34,14 +33,9 @@ services:
     container_name: mysql-8.3.0
     restart: always
     environment:
-      MYSQL_USER: root
-      MYSQL_ROOT_USER: root
-      MYSQL_PASSWORD: '1234'
       MYSQL_ROOT_PASSWORD: '1234'
     ports:
       - '3306:3306'
-    expose:
-      - '3306'
     volumes:
       - mysql-db:/var/lib/mysql
 
@@ -99,7 +93,7 @@ services:
     environment:
       KAFKA_HOST: kafka
       KAFKA_PORT: 9092
-      OPENAI_API_KEY: YndUE5MiP2DuKtmq4gvseNz3PVkJkCab
+      MISTRAL_API_KEY: nKcBLhuwxgJg7h67XFROb5zARklSfZ9N
     depends_on:
       kafka:
         condition: service_healthy

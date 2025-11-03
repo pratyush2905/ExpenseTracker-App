@@ -1,6 +1,7 @@
 from typing import Optional
 from langchain_mistralai import ChatMistralAI
 from langchain_core.pydantic_v1 import BaseModel, Field
+import re
 
 class Expense(BaseModel):
     """Information about a transaction made on any Card"""
@@ -10,9 +11,18 @@ class Expense(BaseModel):
     currency: Optional[str] = Field(title="currency", description="currency of the transaction")
 
     def serialize(self):
+        # Normalize amount: drop thousands separators, keep decimal point
+        normalized_amount = None
+        if self.amount is not None:
+            # remove commas and spaces
+            amt = re.sub(r"[\s,]", "", str(self.amount))
+            normalized_amount = amt
+
+        normalized_currency = (self.currency or "INR").upper()
+
         return {
             "user_id": self.user_id,
-            "amount": self.amount,
+            "amount": normalized_amount,
             "merchant": self.merchant,
-            "currency": self.currency.upper()
+            "currency": normalized_currency
         }

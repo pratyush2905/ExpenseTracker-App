@@ -15,13 +15,13 @@ import org.springframework.stereotype.Service;
 public class UserInfoProducer
 {
 
-    private final KafkaTemplate<String, UserInfoDto> kafkaTemplate;
+    private final KafkaTemplate<String, UserInfoEvent> kafkaTemplate;
 
     @Value("${spring.kafka.topic-json.name}")
     private String topicJsonName;
 
     @Autowired
-    UserInfoProducer(KafkaTemplate<String, UserInfoDto> kafkaTemplate){
+    UserInfoProducer(KafkaTemplate<String, UserInfoEvent> kafkaTemplate){
         this.kafkaTemplate = kafkaTemplate;
     }
 

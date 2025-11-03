@@ -42,9 +42,11 @@ public class TokenController {
         if(auth.isAuthenticated()){
             RefreshToken refreshToken = refreshTokenService.createRefreshToken(
                     authRequest.getUsername());
+            String userId = userDetailsService.getUserByUsername(authRequest.getUsername());
             return new ResponseEntity<>(JwtResponse.builder()
                     .accessToken(jwtService.GenerateToken(authRequest.getUsername()))
                     .token(refreshToken.getToken())
+                    .userId(userId)
                     .build(),HttpStatus.OK);
         }
         else{

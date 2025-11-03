@@ -41,7 +41,7 @@ services:
     routes:
       - name: ds-route
         paths:
-          - /ds/v1
+          - /v1/ds
         strip_path: false
         preserve_host: false
         plugins:
