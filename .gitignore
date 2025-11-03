@@ -13,10 +13,6 @@ ios/Pods/
 # System files
 .DS_Store
 
-# Build and dist
-dist/
-*.tar.gz
-
 # Envs
 .env
 .env.*
